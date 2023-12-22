@@ -1,0 +1,83 @@
+#include <stdio.h>
+int main(void)
+{
+// qn 1
+printf("question number 1 \n\n");
+int x,y;
+printf("enter two numbers \n");
+scanf("%d%d",&x,&y);
+printf("the required value is %d \n\n", x*x+2*x*y+y*y);
+// qn2
+printf("question number 2 \n\n");
+float a, b, c, d, e, sum, average;
+printf("Enter five numbers: ");
+scanf("%f%f%f%f%f", &a, &b, &c, &d, &e);
+sum = a + b + c + d + e;
+average = sum / 6.0;
+printf("Sum of the numbers: %f\n", sum);
+printf("Average of the numbers: %f\n\n", average);
+// qn3
+printf("question number 3 \n\n");
+float num1, num2, num3, num4, num5;
+printf("Enter five numbers: ");
+scanf("%f%f%f%f%f", &num1, &num2, &num3, &num4, &num5);
+sum = num1 + num2 + num3 + num4 + num5;
+average = sum / 6.0;
+printf("Sum of the numbers: %.2f\n", sum);
+printf("Average of the numbers: %.2f\n\n", average);
+// qn 4
+printf("question number 4 \n\n");
+printf("enter a string: ");
+scanf("%d",&x);
+printf("%d\t\t%d\n\t%d\t\n%d\t\t%d\n",x,x,x,x,x);
+// qn 5
+printf("question number 5 \n\n");
+printf("*\t*\t*\n*\t*\t*\n*\t*\t*\n*\t*\t*\n\n");
+// qn 6
+printf("question number 6 \n\n");
+printf("The printf command prints whatever is within the double quotation marks.
+The \\n escape sequence adds a new line.\n\n");
+// qn 7
+printf("question number 7 \n\n");
+printf("Enter the value of x: ");
+scanf("%d", &x);
+printf("Enter the value of y: ");
+scanf("%d", &y);
+printf("The value of x is %d, the value of y is %d. The result of x && y is %d\n",
+x, y, x && y);
+printf("The value of x is %d, the value of y is %d. The result of x || y is %d\n",
+x, y, x || y);
+printf("The value of x is %d, the value of y is %d. The result of x == y is %d\n",
+x, y, x == y);
+printf("The value of x is %d, the value of y is %d. The result of x < y is %d\n\n",
+x, y, x < y);
+// qn 8
+printf("question number 8 \n\n");
+int height;
+float feet, cm, mm;
+printf("Enter the height in inches: ");
+scanf("%d", &height);
+feet = height / 12.0;
+cm = height * 2.54;
+mm = cm * 10;
+printf("The value of %d inches in feet is %8.2f\n", height, feet);
+printf("The value of %d inches in feet is %09.2f\n", height, feet);
+printf("The value of %d inches in cm is %.5f\n", height, cm);
+printf("The value of %d inches in mm is %.0f\n\n", height, mm);
+// qn 9
+// i would replace the blank with this code: rem = x % y;
+printf("question number 9 \n\n");
+x=67, y=12;
+int rem;
+rem = x % y;
+printf("Remainder of %d / %d is %d \n\n", x, y, rem);
+// qn 10
+printf("question number 10 \n\n");
+printf("Enter two floating-point numbers: ");
+scanf("%f %f", &a, &b);
+float percent1 = (a / b) * 100;
+float percent2 = (b / a) * 100;
+printf("%.6f is %.2f%% of %.6f\n", a, percent1, b);
+printf("%.6f is %.2f%% of %.6f\n", b, percent2, a);
+return 0;
+}
