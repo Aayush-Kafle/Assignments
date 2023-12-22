@@ -1,0 +1,244 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+char gradeEval(int score) {
+if (score >= 90) {
+return 'A';
+} else if (score >= 80) {
+return 'B';
+} else if (score >= 70) {
+return 'C';
+} else if (score >= 60) {
+return 'D';
+} else if (score >= 40) {
+return 'E';
+} else {
+return 'F';
+}
+}
+void print_average(float a, float b, float c)
+{
+float avg = (a+b+c)/3.00;
+printf("the average of %.2f, %.2f and %.2f is %.2f\n",a,b,c,avg);
+}
+int makeSquare(int num) {
+return num * num;
+}
+void makeSquareDirectly(int arr[], int i, int length) {
+if (i >= 0 && i < length) {
+arr[i] = arr[i] * arr[i];
+printf("The updated array is: ");
+for (int j = 0; j < length; j++) {
+printf("%d ", arr[j]);
+}
+printf("\n");
+} else {
+printf("Invalid index. Please enter a position between 0 to %d.\n", length
+- 1);
+}
+}
+int arraySum(int arr[], int size) {
+int sum = 0;
+for (int i = 0; i < size; i++) {
+sum += arr[i];
+}
+return sum;
+}
+int isOdd(int num) {
+return num % 2 != 0;
+}
+int main() {
+//qn 1
+printf("qn 1\n");
+int physics, chemistry, english, mathematics;
+printf("Enter Physics score: ");
+scanf("%d", &physics);
+printf("Enter Chemistry score: ");
+scanf("%d", &chemistry);
+printf("Enter English score: ");
+scanf("%d", &english);
+printf("Enter Mathematics score: ");
+scanf("%d", &mathematics);
+printf("REPORT CARD\n");
+printf("Physics: %c\n", gradeEval(physics));
+printf("Chemistry: %c\n", gradeEval(chemistry));
+printf("English: %c\n", gradeEval(english));
+printf("\n\n");
+// qn 2
+printf("qn 2\n");
+int x,y;
+printf("enter two numbers:");
+scanf("%d%d", &x,&y);
+srand(time(NULL));
+int calc = 1 + rand()% 4;
+printf("the randomly generated number is: %d\n",calc);
+switch (calc)
+{
+case 1:
+printf ("Result= %d\n",x+y);
+break;
+case 2:
+printf("Result= %d\n",x-y);
+break;
+case 3:
+printf("Result= %d\n",x*y);
+break;
+case 4:
+{
+float division = (float) x/y;
+printf("Result= %.2f", division);
+}
+}
+printf("\n\n");
+//qn 3
+printf("qn 3\n");
+float x1, y1, z1;
+printf("enter first number: ");
+scanf("%f",&x1);
+printf("enter second number: ");
+scanf("%f",&y1);
+printf("enter third number: ");
+scanf("%f", &z1);
+print_average(x1,y1,z1);
+printf("\n\n");
+// qn 4
+printf("qn 4\n");
+int arr[4];
+printf("Enter four numbers for the array:\n");
+for (int i = 0; i < 4; i++) {
+printf("Enter a number: ");
+scanf("%d", &arr[i]);
+}
+printf("The array is: ");
+for (int i = 0; i < 4; i++) {
+printf("%d ", arr[i]);
+}
+printf("\n");
+int index;
+printf("Enter a position between 0 to 3 to print: ");
+scanf("%d", &index);
+if (index >= 0 && index < 4) {
+printf("Value currently present in index %d is %d\n", index, arr[index]);
+} else {
+printf("Invalid index. Please enter a position between 0 to 3.\n");
+return 1;
+}
+int index1, index2;
+printf("Enter two positions of the array to swap: ");
+scanf("%d %d", &index1, &index2);
+if (index1 >= 0 && index1 < 4 && index2 >= 0 && index2 < 4) {
+int temp = arr[index1];
+arr[index1] = arr[index2];
+arr[index2] = temp;
+printf("The updated array is: ");
+for (int i = 0; i < 4; i++) {
+printf("%d ", arr[i]);
+}
+printf("\n");
+} else {
+printf("Invalid indices. Please enter positions between 0 to 3.\n");
+return 1;
+}
+printf("\n\n");
+//qn 5
+printf("qn 5\n");
+int array[4];
+printf("Enter four numbers for the array:\n");
+for (int i = 0; i < 4; i++) {
+printf("Enter a number: ");
+scanf("%d", &array[i]);
+}
+printf("The array is: ");
+for (int i = 0; i < 4; i++) {
+printf("%d ", array[i]);
+}
+printf("\n");
+printf("Enter a position between 0 to 3 to square: ");
+scanf("%d", &index);
+if (index >= 0 && index < 4) {
+printf("Current value of index %d is %d\n", index, array[index]);
+array[index] = makeSquare(array[index]);
+printf("The updated array is: ");
+for (int i = 0; i < 4; i++) {
+printf("%d ", array[i]);
+}
+printf("\n");
+} else {
+printf("Invalid index. Please enter a position between 0 to 3.\n");
+return 1;
+}
+printf("\n\n");
+//qn 6
+printf("qn 6\n");
+printf("Enter four numbers for the array:\n");
+for (int i = 0; i < 4; i++) {
+printf("Enter a number: ");
+scanf("%d", &arr[i]);
+}
+printf("The array is: ");
+for (int i = 0; i < 4; i++) {
+printf("%d ", arr[i]);
+}
+printf("\n");
+printf("Enter a position between 0 to 3 to square: ");
+scanf("%d", &index);
+if (index >= 0 && index < 4) {
+printf("Current value of index %d is %d\n", index, arr[index]);
+makeSquareDirectly(arr, index, 4);
+} else {
+printf("Invalid index. Please enter a position between 0 to 3.\n");
+}
+printf("\n\n");
+// qn 7
+printf("qn7\n");
+int array1[5];
+printf("Enter five numbers for the array:\n");
+for (int i = 0; i < 5; i++) {
+printf("Enter a number: ");
+scanf("%d", &array1[i]);
+}
+printf("The array is: ");
+for (int i = 0; i < 5; i++) {
+printf("%d ", array1[i]);
+}
+printf("\n");
+int sum = arraySum(array1, 5);
+printf("The sum of the numbers in the array is %s\n", isOdd(sum) ? "odd" :
+"even");
+printf("\n\n");
+// qn 8
+printf("qn 8\n");
+int array2[3][2];
+printf("Enter 9 numbers for the array:\n");
+for (int i = 0; i < 3; i++) {
+for (int j = 0; j < 2; j++) {
+printf("Enter a number: ");
+scanf("%d", &array2[i][j]);
+}
+}
+printf("The array is:\n");
+for (int i = 0; i < 3; i++) {
+for (int j = 0; j < 2; j++) {
+printf("%d ", array2[i][j]);
+}
+printf("\n");
+}
+int rowToSquare;
+printf("Enter the row to square (1 to 3): ");
+scanf("%d", &rowToSquare);
+if (rowToSquare >= 1 && rowToSquare <= 3) {
+for (int j = 0; j < 2; j++) {
+array2[rowToSquare - 1][j] = makeSquare(array2[rowToSquare - 1][j]);
+}
+printf("The updated array is:\n");
+for (int i = 0; i < 3; i++) {
+for (int j = 0; j < 2; j++) {
+printf("%d ", array2[i][j]);
+}
+printf("\n");
+}
+} else {
+printf("Invalid row. Please enter a row between 1 to 3.\n");
+}
+return 0;
+}
