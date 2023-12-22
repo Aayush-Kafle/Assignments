@@ -1,0 +1,271 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+int dotProduct(int a[], int b[], int size) {
+int result = 0;
+// Using a loop to calculate dot product
+for (int i = 0; i < size; i++) {
+result += a[i] * b[i];
+}
+return result;
+}
+// Function to print a 2D array
+void printArray(int arr[4][4]) {
+for (int i = 0; i < 4; i++) {
+for (int j = 0; j < 4; j++) {
+printf("%2d ", arr[i][j]);
+}
+printf("\n");
+}
+printf("\n");
+}
+void printArray2(int arr[][3], int rows, int cols) {
+for (int i = 0; i < rows; i++) {
+for (int j = 0; j < cols; j++) {
+printf("%2d ", arr[i][j]);
+}
+printf("\n");
+}
+printf("\n");
+}
+// Function to calculate the sum of two 2D arrays
+void addArrays(int arr1[][3], int arr2[][3], int sum[][3], int rows, int cols) {
+for (int i = 0; i < rows; i++) {
+for (int j = 0; j < cols; j++) {
+sum[i][j] = arr1[i][j] + arr2[i][j];
+}
+}
+}
+void initializeArray(int arr[10][10]) {
+srand(time(NULL));
+for (int i = 0; i < 10; i++) {
+for (int j = 0; j < 10; j++) {
+arr[i][j] = rand() % 10 + 1;
+}
+}
+}
+// Function to find the minimum value in a 2D array
+int findMinimum(int arr[10][10]) {
+int min = arr[0][0];
+for (int i = 0; i < 10; i++) {
+for (int j = 0; j < 10; j++) {
+if (arr[i][j] < min) {
+min = arr[i][j];
+}
+}
+}
+return min;
+}
+// Function to find the maximum value in a 2D array
+int findMaximum(int arr[10][10]) {
+int max = arr[0][0];
+for (int i = 0; i < 10; i++) {
+for (int j = 0; j < 10; j++) {
+if (arr[i][j] > max) {
+max = arr[i][j];
+}
+}
+}
+return max;
+}
+// Function to find and print distinct values in a 2D array
+void findDistinctValues(int arr[10][10]) {
+printf("Distinct values in the array:\n");
+int distinct[100] = {0}; // Assuming a maximum of 100 distinct values
+int distinctCount = 0;
+for (int i = 0; i < 10; i++) {
+for (int j = 0; j < 10; j++) {
+int value = arr[i][j];
+int isDistinct = 1;
+// Check if the value is already in the distinct array
+for (int k = 0; k < distinctCount; k++) {
+if (distinct[k] == value) {
+isDistinct = 0;
+break;
+}
+}
+// If the value is distinct, print it and add to the distinct array
+if (isDistinct) {
+printf("%d ", value);
+distinct[distinctCount++] = value;
+}
+}
+}
+printf("\n");
+}
+int main() {
+printf("qn 1\n");
+int size;
+// to enter the dimension (size) of the arrays
+printf("Enter the size of the arrays: ");
+scanf("%d", &size);
+int a[size], b[size];
+// enter elements of the first array
+printf("Enter elements of the first array:\n");
+for (int i = 0; i < size; i++) {
+printf("Element %d: ", i + 1);
+scanf("%d", &a[i]);
+}
+// elements of the second array
+printf("Enter elements of the second array:\n");
+for (int i = 0; i < size; i++) {
+printf("Element %d: ", i + 1);
+scanf("%d", &b[i]);
+}
+// Call the dotProduct function and print the result
+int result = dotProduct(a, b, size);
+printf("Dot product of the two arrays is: %d\n", result);
+//qn 2
+printf("qn 2\n");
+int array_i[4][4] = {0};
+for (int i = 0; i < 4; i++) {
+for (int j = 0; j <= i; j++) {
+array_i[i][j] = i + 1;
+}
+}
+printf("i)\n");
+printArray(array_i);
+int array_ii[4][4] = {0};
+for (int i = 0; i < 4; i++) {
+for (int j = i; j < 4; j++) {
+array_ii[i][j] = i + 1;
+}
+}
+printf("ii)\n");
+printArray(array_ii);
+int array_iii[4][4] = {0};
+for (int i = 0; i < 4; i++) {
+array_iii[i][i] = 1;
+}
+printf("iii)\n");
+printArray(array_iii);
+printf("qn 3\n");
+int rows, cols;
+// Prompt the user to enter dimensions of the matrices
+printf("Enter the number of rows: ");
+scanf("%d", &rows);
+printf("Enter the number of columns: ");
+scanf("%d", &cols);
+int matrix1[rows][cols], matrix2[rows][cols], sumMatrix[rows][cols];
+// Prompt the user to enter elements of the first matrix
+printf("Enter elements of the first matrix:\n");
+for (int i = 0; i < rows; i++) {
+for (int j = 0; j < cols; j++) {
+printf("Element (%d, %d): ", i + 1, j + 1);
+scanf("%d", &matrix1[i][j]);
+}
+}
+// Prompt the user to enter elements of the second matrix
+printf("Enter elements of the second matrix:\n");
+for (int i = 0; i < rows; i++) {
+for (int j = 0; j < cols; j++) {
+printf("Element (%d, %d): ", i + 1, j + 1);
+scanf("%d", &matrix2[i][j]);
+}
+}
+// Calculate the sum of the matrices
+addArrays(matrix1, matrix2, sumMatrix, rows, cols);
+// Print the sum matrix
+printf("Sum of the matrices:\n");
+printArray2(sumMatrix, rows, cols);
+printf("qn 4\n");
+int array[10][10];
+// i) Initialize a 2D array with random values between 1 and 10
+initializeArray(array);
+// ii) Find the minimum and maximum of all elements
+int min = findMinimum(array);
+int max = findMaximum(array);
+printf("Minimum value: %d\n", min);
+printf("Maximum value: %d\n", max);
+// iii) Find and print all distinct values in the 2D array
+findDistinctValues(array);
+printf("qn 6\n");
+char input[20];
+char smallest_word[20];
+char largest_word[20];
+// Initialize smallest_word and largest_word with an empty string
+smallest_word[0] = '\0';
+largest_word[0] = '\0';
+while (1) {
+printf("Enter word: ");
+scanf("%s", input);
+// Check if the entered word is a four-letter word
+if (strlen(input) == 4) {
+break;
+}
+// If smallest_word is empty or input is smaller, update smallest_word
+if (smallest_word[0] == '\0' || strcmp(input, smallest_word) < 0) {
+strcpy(smallest_word, input);
+}
+// If largest_word is empty or input is larger, update largest_word
+if (largest_word[0] == '\0' || strcmp(input, largest_word) > 0) {
+strcpy(largest_word, input);
+}
+}
+printf("Smallest word: %s\n", smallest_word);
+printf("Largest word: %s\n", largest_word);
+printf("qn 7\n");
+// Seed the random number generator
+srand(time(NULL));
+// Arrays to store counts for individual dice and sum of dice
+int count_dice1[6] = {0};
+int count_dice2[6] = {0};
+int count_sum[11] = {0}; // Indices 0 to 10 for sums 2 to 12
+// Simulate rolling the dice 10000 times
+for (int i = 0; i < 10000; i++) {
+// Roll two dice
+int dice1 = rand() % 6 + 1;
+int dice2 = rand() % 6 + 1;
+// Count occurrences for each number on individual dice
+count_dice1[dice1 - 1]++;
+count_dice2[dice2 - 1]++;
+// Count occurrences for the sum of dice
+count_sum[dice1 + dice2 - 2]++;
+}
+// Print the results
+printf("The dice were rolled 10000 times\n");
+// Display counts for individual numbers on dice1
+for (int i = 0; i < 6; i++) {
+printf("On dice1, number %d appeared %d times\n", i + 1, count_dice1[i]);
+}
+// Display counts for individual numbers on dice2
+for (int i = 0; i < 6; i++) {
+printf("On dice2, number %d appeared %d times\n", i + 1, count_dice2[i]);
+}
+// Display counts for the sum of numbers on both dice
+for (int i = 0; i < 11; i++) {
+printf("The sum of the number appeared on both dice was %d %d times\n", i +
+2, count_sum[i]);
+}
+printf("qn 8\n");
+FILE *file;
+char name[50];
+int grade;
+// Writing data to file
+file = fopen("GradeReport.txt", "w");
+if (file == NULL) {
+printf("Error opening file for writing.\n");
+return 1;
+}
+for (int i = 0; i < 3; i++) {
+printf("Enter name for student %d: ", i + 1);
+scanf("%s", name);
+printf("Enter grade for student %d: ", i + 1);
+scanf("%d", &grade);
+fprintf(file, "%s %d\n", name, grade);
+}
+fclose(file);
+// Reading data from file and printing on screen
+file = fopen("GradeReport.txt", "r");
+if (file == NULL) {
+printf("Error opening file for reading.\n");
+return 1;
+}
+printf("\nReading data from file:\n");
+while (fscanf(file, "%s %d", name, &grade) != EOF) {
+printf("Name: %s, Grade: %d\n", name, grade);
+}
+fclose(file);
+return 0;
+}
